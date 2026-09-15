@@ -26,7 +26,7 @@ Roadmap:
 
 	Unity Sensors --> Fly Brain (Python) --> Motor Decoder --> Unity Rigidbody
 
-
+```
 fly-project/
 |
 |__ frontend/
@@ -42,7 +42,7 @@ fly-project/
 |   |__ Python fly brain
 |
 |__ README.md
-
+```
 
 ### Backend Choice
 
@@ -50,13 +50,13 @@ Top choice: Oracle Cloud Free Tier
 
 
 ### Vertical Architecture
-
+```
 GitHub Pages + React
      |	
 FastAPI & Websocket info + WebGL Viewer ->Rendering	}
      |		                                        } via Oracle Cloud "Always Free" Tier 
 Python & Unity Headless                             }
-
+```
 
 #### FastAPI 
 
