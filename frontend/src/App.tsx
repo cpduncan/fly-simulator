@@ -1,6 +1,9 @@
 import "./App.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
+import { Provider } from "./components/ui/provider.tsx";
+import { Button } from "@chakra-ui/react/button";
+
 const unityBuildPath = `${import.meta.env.BASE_URL}assets/`;
 
 function App() {
@@ -13,7 +16,14 @@ function App() {
 
   return (
     <main className="unity-page">
-      <Unity className="unity-canvas" unityProvider={unityProvider} />
+      <div className="unity-container">
+        <Unity className="unity-canvas" unityProvider={unityProvider} />
+      </div>
+      <div className="overlay-container">
+        <Provider>
+          <Button>Click</Button>
+        </Provider>
+      </div>
     </main>
   );
 }
