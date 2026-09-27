@@ -2,7 +2,15 @@ import "./App.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 import { Provider } from "./components/ui/provider.tsx";
-import { Button } from "@chakra-ui/react/button";
+
+import {
+  Stat_CumulativeTotalFood,
+  Stat_GenTotalFood,
+  Stat_GenAvgFood,
+} from "./components/ui/stats.tsx";
+import "./components/ui/stats.css";
+
+import { SensoryDocumentation } from "./components/ui/accordion.tsx";
 
 const unityBuildPath = `${import.meta.env.BASE_URL}assets/`;
 
@@ -21,7 +29,21 @@ function App() {
       </div>
       <div className="overlay-container">
         <Provider>
-          <Button>Click</Button>
+          <div className="overlay-grid">
+            <div className="overlay-left">
+              <h2>Generation Stats</h2>
+              <div className="left-stat-grid">
+                <Stat_CumulativeTotalFood />
+                <Stat_GenTotalFood />
+                <Stat_GenAvgFood />
+              </div>
+            </div>
+            <div className="overlay-center"></div>
+            <div className="overlay-right">
+              <h2>Sensory Documentation</h2>
+              <SensoryDocumentation />
+            </div>
+          </div>
         </Provider>
       </div>
     </main>
