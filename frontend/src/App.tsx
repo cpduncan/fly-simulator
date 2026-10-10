@@ -16,10 +16,10 @@ const unityBuildPath = `${import.meta.env.BASE_URL}assets/`;
 
 function App() {
   const { unityProvider } = useUnityContext({
-    loaderUrl: `${unityBuildPath}fly-sim-frontend-build-3.loader.js`,
-    dataUrl: `${unityBuildPath}fly-sim-frontend-build-3.data`,
-    frameworkUrl: `${unityBuildPath}fly-sim-frontend-build-3.framework.js`,
-    codeUrl: `${unityBuildPath}fly-sim-frontend-build-3.wasm`,
+    loaderUrl: `${unityBuildPath}fly-sim-frontend-build-4.loader.js`,
+    dataUrl: `${unityBuildPath}fly-sim-frontend-build-4.data`,
+    frameworkUrl: `${unityBuildPath}fly-sim-frontend-build-4.framework.js`,
+    codeUrl: `${unityBuildPath}fly-sim-frontend-build-4.wasm`,
   });
 
   return (
