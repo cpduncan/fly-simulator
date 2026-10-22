@@ -1,32 +1,51 @@
-# React + TypeScript + Vite
+## Roadmap (26-10-08):
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+### General
 
-Currently, two official plugins are available:
+- [x] create basic unity environment for testing
+- [x] integrate the unity sim front and backend on the server and site
+- [x] websocket setup for positional info
+- [ ] API setup for generational info
+- [ ] run brain and get raw signals after probing with basic inputs
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Fly Senses
 
-## React Compiler
+- [ ] run a unity sensor body that has
+  - Close-Vision (Depth Camera)
+  - Olfactory Target Sensing (normalized yaw and pitch triggers)
+  - food distance
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Fly Actions
 
-## Expanding the Oxlint configuration
+- [ ] expose unity actions and movement for python to interact with
+  - Move Force
+  - Move Vector3 (Normalizes to surface plane while grounded)
+  - Grounded bool (and Serialized grounded friction) (can ground to any nearest surface)
+  - Turning value
+  - Bite action
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- [ ] replace rudementary pathfinding with Janelia
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Architecture
+
+_Frontend : React, Vite, TypeScript, Static Chakra Components, Unity+WebGL rendering_
+
+_Backend : Oracle Cloud server hosting a headless Unity simulation and training a Spiking Neural Network_
+
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+# Simulation Loop
+#
+#        (--------- backend ---------)       (--- frontend ---)
+#
+#         Unity               SSNTorch             Browser
+#           |                    |                    |
+#    [Read Senses]               |                    |
+#           |--- Sensory In ---->|                    |
+#           |              [Step Brain]               |
+#           |<-- Move/Actions ---|                    |
+#    [Step Physics]              |                    |
+#           |                                         |
+#           |-- Push Positions Via Websocket -------->|
+#                                           [Render Simulation]
+#
+```

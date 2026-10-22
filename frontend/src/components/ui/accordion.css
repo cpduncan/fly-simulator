@@ -1,0 +1,9 @@
+.sensory-documentation {
+  width: 100%;
+  .accordion-item {
+    background: #222222a0;
+    border: 2px solid #27272a;
+    border-radius: 10px;
+    margin: 15px;
+  }
+}

@@ -1,0 +1,13 @@
+.stat {
+  padding: 15px;
+  background: #222222a0;
+  border: 2px solid #27272a;
+  border-radius: 10px;
+}
+
+.stat-with-change {
+  padding: 15px;
+  background: #222222a0;
+  border: 2px solid #27272a;
+  border-radius: 10px;
+}

@@ -1,3 +1,11 @@
+# Unity stuff for frontend
+/frontend-unity/Library/
+/frontend-unity/Temp/
+/frontend-unity/Obj/
+/frontend-unity/Logs/
+/frontend-unity/Build/
+/frontend-unity/UserSettings/
+
 # Logs
 logs
 *.log
