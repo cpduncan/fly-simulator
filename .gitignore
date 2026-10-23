@@ -32,5 +32,6 @@ dist-ssr
 *.sw?
 
 # Python Backend huge files
+/backend-python/venv/
 /backend-python/MaleCNS V1 RawData/
 *.pt
